@@ -12,15 +12,15 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: #fff; /* Updated background color to white */
 }
 
 header {
   text-align: center;
   padding: 20px 0;
   margin-bottom: 30px;
-  background-color: #1a237e;
-  color: white;
+  background-color: #cddc39; /* lime green */
+  color: #fff;
   border-radius: 5px;
 }
 
@@ -42,12 +42,13 @@ main {
 }
 
 section {
-  background-color: white;
+  background-color: #fff;
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 500px;
+  border: 2px solid #cddc39; /* lime green border */
 }
 
 section h3 {
@@ -60,9 +61,9 @@ section h3 {
 .activity-card {
   margin-bottom: 15px;
   padding: 15px;
-  border: 1px solid #ddd;
+  border: 2px solid #cddc39; /* lime green border */
   border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: #fff;
 }
 
 .activity-card h4 {
@@ -196,5 +197,6 @@ footer {
   text-align: center;
   margin-top: 30px;
   padding: 20px;
-  color: #666;
+  color: #fff;
+  background-color: #cddc39; /* lime green */
 }

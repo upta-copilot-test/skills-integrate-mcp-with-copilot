@@ -155,6 +155,52 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // Animated Git-style branch lines background
+  window.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('branch-bg');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Simple animated branch lines
+    const branches = [
+      {x: 100, y: 0, dx: 1, dy: 2, color: '#cddc39'},
+      {x: 300, y: 0, dx: 2, dy: 1, color: '#8bc34a'},
+      {x: 500, y: 0, dx: -1, dy: 2, color: '#cddc39'},
+      {x: 700, y: 0, dx: 1.5, dy: 1.5, color: '#8bc34a'}
+    ];
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      branches.forEach(branch => {
+        ctx.beginPath();
+        ctx.moveTo(branch.x, branch.y);
+        ctx.bezierCurveTo(
+          branch.x + 50, branch.y + 100,
+          branch.x - 50, branch.y + 200,
+          branch.x + branch.dx * 20, branch.y + 300
+        );
+        ctx.strokeStyle = branch.color;
+        ctx.lineWidth = 3;
+        ctx.globalAlpha = 0.2;
+        ctx.stroke();
+        ctx.globalAlpha = 1;
+        branch.x += branch.dx;
+        branch.y += branch.dy;
+        if (branch.y > canvas.height) {
+          branch.y = 0;
+          branch.x = Math.random() * canvas.width;
+        }
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  });
+
   // Initialize app
   fetchActivities();
 });
